@@ -80,3 +80,6 @@ img {
 #res_table, #res_table tr, #res_table td {
     border: 1px solid black;
 }
+#res_table_headers {
+    background-color: white;
+}
