@@ -81,5 +81,6 @@ img {
     border: 1px solid black;
 }
 #res_table_headers {
-    background-color: white;
+    background-color: red;
+
 }
