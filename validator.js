@@ -2,12 +2,27 @@ var button_now;
 
 
 let form = document.getElementById("xyr_form");
-let validationListener = validateY;
-form.addEventListener("input", validationListener);
-// form.addEventListener("submit", send);
+let validatListener = validateY;
+form.addEventListener("input", validatListener);
 
+$.ajax({
+    url: "session.php",
+    dataType:"json",
+    success:function(sessionRows){
+        var mass = sessionRows["rows"];
+        if(!(mass.length === undefined ||mass.length == null)){
+            creatResTable();
+            for (let row in mass){
+                addRow(mass[row]);
+            }
+        }
+    },
+    xhrFields: {
+        withCredentials: true
+    }
+});
 
-//////AJAX////////
+//AJAX
 $(function() {
     $(form).submit(function(e) {
         e.preventDefault();
@@ -114,16 +129,16 @@ $(function() {
 
  }
 
-function button_click(_button) {
-    _button.style.background = 'white';
-
-    _button.style.width = '38px';
-    _button.style.height = '29px';
-
-
-    if(button_now!=null && button_now!=_button){
-        button_now.style.background='';
-    }
-    button_now = _button;
-}
+// function button_click(_button) {
+//     _button.style.background = 'white';
+//
+//     _button.style.width = '38px';
+//     _button.style.height = '29px';
+//
+//
+//     if(button_now!=null && button_now!=_button){
+//         button_now.style.background='';
+//     }
+//     button_now = _button;
+// }
 

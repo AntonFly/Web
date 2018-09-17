@@ -57,12 +57,14 @@
 
         <td colspan="2" class="footer" >
             <form id="xyr_form" name="xyr_form" action="script.php" method="post" onsubmit="return validateY()">
-            <table id="ch_table">
+                <div id="ch_block">
+            <table id="ch_table" align="left">
 
-                    <tr>
+                    <tr class="xTr" >
                         <td></td>
                         <td>
-                            <input  name="X" type="radio"   value="-2">-2
+                            <input  name="X" type="radio"   value="-2" required
+                                    oninvalid = "this.setCustomValidity(this.willValidate ? '' : 'Введите X')" >-2
                         </td>
                         <td>
                             <input  name="X" type="radio"   value="-1.5">-1.5
@@ -71,19 +73,19 @@
                             <input  name="X" type="radio"   value="-1">-1
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="xTr">
                         <td>X=</td>
                         <td>
                             <input  name="X" type="radio"   value="-0.5">-0.5
                         </td>
                         <td>
-                            <input  name="X" type="radio"   value="0">0
+                            <input  name="X" type="radio"   value="0" >0
                         </td>
                         <td>
                             <input  name="X" type="radio"   value="0.5">0.5
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="xTr">
                         <td></td>
                         <td>
                             <input  name="X" type="radio"   value="1">1
@@ -101,10 +103,10 @@
 
                         <td>Y=</td>
                         <td id="y-block" colspan="3">
-                            <input id="y_input" name="Y" type="text" placeholder="Введите координату Y"
+                            <input id="y_input" name="Y" type="text" placeholder="{-5..3}"
                                                required oninvalid="this.setCustomValidity('Введите Y')"
                                                oninput="setCustomValidity('')"
-                                               maxlength="20" size="20"></td>
+                                               maxlength="5" size="20"></td>
                     </tr>
 
 
@@ -129,9 +131,11 @@
                     </td>
                 </tr>
             </table>
+                </div>
             </form>
         </td>
-        <td id="resCol">
+        <td>
+            <div id="resCol"></div>
 
         </td>
 
