@@ -33,6 +33,11 @@ $(function() {
             data: $form.serialize(),
             dataType:"json",
             response:"json",
+            beforeSend: function(){
+                if(!validateY()){
+                    return false
+                }
+            },
             success:addRow
         }).done(function() {
             console.log('success');

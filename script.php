@@ -41,7 +41,7 @@ function isInArea($x,$y,$r){
         else
             return "Fail";
     }elseif ($x<=0 && $y<=0){
-        if ($x^2+$y^2<=$r)
+        if ($x^2+$y^2<=$r^2)
             return "Success";
         else
             return "Fail";
